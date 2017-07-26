@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns="https://www.musicstore.com"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://www.musicstore.com ../../schema/test-data-schema.xsd">
+
+    <HOLIDAYS id="1" holiday_date="1904-02-25"/>
+    <HOLIDAYS id="2" holiday_date="1904-04-11"/>
+    <HOLIDAYS id="3" holiday_date="1904-05-11"/>
+    <HOLIDAYS id="4" holiday_date="1904-07-11"/>
+    <HOLIDAYS id="5" holiday_date="1904-10-19"/>
+    <HOLIDAYS id="6" holiday_date="1904-11-23"/>
+    <HOLIDAYS id="7" holiday_date="1904-12-05"/>
+
+</dataset>

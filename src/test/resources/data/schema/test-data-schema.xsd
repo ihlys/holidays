@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.musicstore.com"
+           xmlns="https://www.musicstore.com"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="test-data-types-schema.xsd"/>
+
+    <xs:element name="dataset">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="HOLIDAYS" type="Holiday"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

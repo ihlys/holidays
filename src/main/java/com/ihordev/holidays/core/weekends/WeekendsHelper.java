@@ -1,4 +1,4 @@
-package com.ihordev.holidays.core.holidays;
+package com.ihordev.holidays.core.weekends;
 
 import com.ihordev.holidays.core.util.Date;
 import com.ihordev.holidays.core.util.DateUtils;

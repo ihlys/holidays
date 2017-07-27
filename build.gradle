@@ -66,3 +66,15 @@ dependencies {
     // ***** local libraries dependencies *****
     compile("com.oracle:ojdbc7:$oracleDriverVersion")
 }
+
+task createJavadoc(type:Exec) {
+    args = [
+            '-d', 'holidays_javadocs',
+            '-sourcepath', 'src\\main\\java',
+            '-subpackages', 'com',
+            '-classpath', sourceSets.main.compileClasspath.asPath,
+            '-link', 'https://docs.oracle.com/javaee/7/api/',
+            '-link', 'https://docs.oracle.com/javase/8/docs/api/'
+    ]
+    executable 'javadoc'
+}

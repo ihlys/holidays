@@ -3,6 +3,10 @@ package com.ihordev.holidays.core.util;
 import static com.ihordev.holidays.core.util.DateUtils.*;
 import static java.lang.String.format;
 
+/**
+ * <p>A class that represents a calendar date. It's based on gregorian
+ * calendar and fact that 1 january of 1900 year is a monday.
+ */
 public class Date {
 
     private static final int GREGORIAN_CALENDAR_YEAR = 1582;
@@ -22,12 +26,27 @@ public class Date {
         this.weekDay = countWeekDay(this.daysFromAnchor);
     }
 
+    /**
+     * Constructs an instance from date specified as string. String must be in
+     * 'YYYY-MM-DD' format;
+     *
+     * @param date the date as string in 'YYYY-MM-DD' format
+     * @return a new instance of this class
+     */
     public static Date of(String date) {
         String[] dateValues = date.split("-");
         return new Date(Integer.parseInt(dateValues[0]), Integer.parseInt(dateValues[1]),
                 Integer.parseInt(dateValues[2]));
     }
 
+    /**
+     * Constructs an instance from year, month and day of month.
+     *
+     * @param year the year of date
+     * @param month the month of date
+     * @param dayOfMonth the day of month of date
+     * @return a new instance of this class
+     */
     public static Date of(int year, int month, int dayOfMonth) {
         return new Date(year, month, dayOfMonth);
     }

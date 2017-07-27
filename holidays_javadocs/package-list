@@ -1,0 +1,10 @@
+com.ihordev.holidays
+com.ihordev.holidays.config
+com.ihordev.holidays.core.util
+com.ihordev.holidays.core.weekends
+com.ihordev.holidays.domain
+com.ihordev.holidays.repository
+com.ihordev.holidays.repository.impl
+com.ihordev.holidays.service
+com.ihordev.holidays.service.impl
+com.ihordev.holidays.web

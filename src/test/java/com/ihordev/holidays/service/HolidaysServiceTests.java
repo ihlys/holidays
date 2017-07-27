@@ -12,8 +12,8 @@ public class HolidaysServiceTests implements WithBDDMockito {
     public void shouldGetHolidaysBetweenTwoDatesCorrectly() {
         int mockHolidaysRepositoryReturnedHolidays = 10;
         int expectedHolidaysBetween = 66 + mockHolidaysRepositoryReturnedHolidays;
-        String startDate = "2016.12.09";
-        String endDate = "2017.07.26";
+        String startDate = "2016-12-09";
+        String endDate = "2017-07-26";
 
         HolidaysRepository holidaysRepository = mock(HolidaysRepository.class);
         given(holidaysRepository.countHolidaysBetween(eq(startDate), eq(endDate)))

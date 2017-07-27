@@ -9,12 +9,12 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 @SpringBootApplication
 public class HolidaysApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HolidaysApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HolidaysApplication.class, args);
+    }
 
-	@Bean
-	public MessageSource messageSource() {
+    @Bean
+    public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasenames("classpath:i18n/messages");
         messageSource.setDefaultEncoding("UTF-8");

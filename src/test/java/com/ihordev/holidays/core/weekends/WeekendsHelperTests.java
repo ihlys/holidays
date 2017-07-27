@@ -14,8 +14,8 @@ public class WeekendsHelperTests {
         int expectedWeekendsBetween1 = 66;
         int expectedWeekendsBetween2 = 4312;
 
-        Date startDate1 = Date.of("2016.12.09"); Date endDate1 = Date.of("2017.07.26");
-        Date startDate2 = Date.of("1981.06.05"); Date endDate2 = Date.of("2022.09.25");
+        Date startDate1 = Date.of("2016-12-09"); Date endDate1 = Date.of("2017-07-26");
+        Date startDate2 = Date.of("1981-06-05"); Date endDate2 = Date.of("2022-09-25");
 
         int actualWeekendsBetween1 = WeekendsHelper.countWeekendsBetween(startDate1, endDate1);
         int actualWeekendsBetween2 = WeekendsHelper.countWeekendsBetween(startDate2, endDate2);

@@ -23,7 +23,7 @@ public class Date {
     }
 
     public static Date of(String date) {
-        String[] dateValues = date.split("\\.");
+        String[] dateValues = date.split("-");
         return new Date(Integer.parseInt(dateValues[0]), Integer.parseInt(dateValues[1]),
                 Integer.parseInt(dateValues[2]));
     }

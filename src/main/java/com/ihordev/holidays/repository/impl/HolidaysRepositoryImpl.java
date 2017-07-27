@@ -4,12 +4,9 @@ import com.ihordev.holidays.repository.HolidaysRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.sql.Date;
 import java.sql.Types;
@@ -19,13 +16,6 @@ public class HolidaysRepositoryImpl implements HolidaysRepository {
 
     @Autowired
     private DataSource dataSource;
-
-    private NamedParameterJdbcOperations jdbc;
-
-    @PostConstruct
-    public void init() {
-        jdbc = new NamedParameterJdbcTemplate(dataSource);
-    }
 
     @Override
     public int countHolidaysBetween(String startDate, String endDate) {

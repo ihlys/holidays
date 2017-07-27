@@ -6,3 +6,8 @@
 .btn-sign-in {
     width: 100%;
 }
+
+.auth-failed {
+    color: red;
+    text-align: center;
+}

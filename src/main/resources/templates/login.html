@@ -34,12 +34,12 @@
                         <button class="btn btn-primary btn-sign-in" type="submit" th:text="#{form-login.sign-in-btn}"></button>
                       </div>
                     </div>
+                    <div class="auth-failed col-sm-6 col-sm-offset-3">
+                        <span th:if="${param.error != null}" th:text="#{form-login.auth-failed}" ></span>
+                    </div>
                 </form>
             </div>
             
-            <th:block th:if="${param.error != null}" th:each="error : ${param.error}">
-                <span th:text="${error}"></span>
-            </th:block>
             
         </div>
 

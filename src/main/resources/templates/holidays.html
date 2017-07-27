@@ -31,14 +31,63 @@
                         </div>
                     </form>
                     <input class="btn btn-primary holidays-calculate" type="submit" form="holidays-form" th:value="#{holidays.calculate}"></input>
-                    <span class="holidays-result" th:text="#{holidays.result}"></span>
+                    <div class="holidays-result">
+                        <span th:text="#{holidays.result-label}"></span>
+                        <span id="holidays-result-field" th:text="${holidaysCount}"></span>
+                    </div>
                 </div>
                     
             </div>
             
         </div>
+        
+        <script>
+            const holidaysForm = document.getElementById('holidays-form');
+            const startDateInput = document.getElementById('startDate');
+            const endDateInput = document.getElementById('endDate');
+            const holidaysResultField = document.getElementById('holidays-result-field');
+            
+            const actionUrl = holidaysForm.getAttribute('action');
+            
+            let isWaitingForAjaxResults = false;
+            holidaysForm.addEventListener('submit', function(event) {
+                const ajaxGetUrl = actionUrl + '?startDate=' + startDateInput.value + '&' + 'endDate=' + endDateInput.value;
+                event.preventDefault();
+                
+                if (!isWaitingForAjaxResults) {
+                    isWaitingForAjaxResults = true;
+                    
+                    const promise = new Promise((resolve, reject) => {
+                        const xhr = new XMLHttpRequest();
+                        xhr.open('GET', ajaxGetUrl, true);
+                        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                        
+                        xhr.onload = function () {
+                            if (this.status === 200) {
+                              resolve(this);
+                            } else {
+                              const error = new Error(this.statusText);
+                              error.code = this.status;
+                              reject(error);
+                            }
+                        };
+
+                        xhr.onerror = function () {
+                          reject(new Error('Network Error'));
+                        };
+
+                        xhr.send();
+                    });
+                    
+                    promise.then((request) => {
+                        holidaysResultField.textContent = request.response;
+                        isWaitingForAjaxResults = false;
+                    })
+                    .catch(console.log);
+                }
+            });
+        </script>
 
     </body>
-
              
 </html>

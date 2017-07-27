@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <th:block th:include="fragments/main :: head"></th:block>
+
+        <link rel="stylesheet" type="text/css" media="all"
+              href="../static/css/login.css"
+                  th:href="@{/css/login.css}"/>
+    </head>
+             
+    <body>
+    
+        <div class="container-fluid">
+    
+            <div class="header row" th:include="fragments/main :: header"></div>
+            
+            <div class="form-login row">
+                <form th:action="@{/login}" method="POST">
+                    <div class="form-group row">
+                      <label for="username" class="col-2 col-form-label" th:text="#{form-login.login-label}"></label>
+                      <div class="col-10">
+                        <input class="form-control" type="text" id="username" name="username" th:placeholder="#{form-login.login-placeholder}">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="password" class="col-2 col-form-label" th:text="#{form-login.password-label}"></label>
+                      <div class="col-10">
+                        <input class="form-control" type="password" id="password" name="password" th:placeholder="#{form-login.password-placeholder}">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-4 col-sm-offset-4">
+                        <button class="btn btn-primary btn-sign-in" type="submit" th:text="#{form-login.sign-in-btn}"></button>
+                      </div>
+                    </div>
+                </form>
+            </div>
+            
+            <th:block th:if="${param.error != null}" th:each="error : ${param.error}">
+                <span th:text="${error}"></span>
+            </th:block>
+            
+        </div>
+
+    </body>
+
+             
+</html>

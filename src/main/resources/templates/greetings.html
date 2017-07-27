@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <th:block th:include="fragments/main :: head"></th:block>
+
+        <link rel="stylesheet" type="text/css" media="all"
+              href="../static/css/greetings.css"
+                  th:href="@{/css/greetings.css}"/>
+    </head>
+             
+    <body>
+    
+        <div class="container-fluid">
+    
+            <div class="header row" th:include="fragments/main :: header"></div>
+            
+            <div class="greetings row">
+                <h1 th:text="#{greetings.header}"></h1>
+            </div>
+
+            <div class="login row">
+                <a class="btn btn-primary" th:href="@{/login}" th:text="#{greetings.sign-in}"></a>
+            </div>
+            
+        </div>
+
+    </body>
+
+             
+</html>

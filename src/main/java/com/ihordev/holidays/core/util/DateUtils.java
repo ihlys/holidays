@@ -6,9 +6,7 @@ public final class DateUtils {
 
     private static final int ANCHOR_YEAR = 1900;
     private static final int ANCHOR_LEAP_YEARS = countLeapYears(ANCHOR_YEAR);
-    private static final int ANCHOR_MONTH = 1;
     private static final int ANCHOR_DAY_OF_MONTH = 1;
-    private static final int ANCHOR_WEEK_DAY = 1;
 
     public static final int[] MONTHS_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <th:block th:include="fragments/main :: head"></th:block>
+
+        <link rel="stylesheet" type="text/css" media="all"
+              href="../static/css/holidays.css"
+                  th:href="@{/css/holidays.css}"/>
+    </head>
+             
+    <body>
+    
+        <div class="container-fluid">
+    
+            <div class="header row" th:include="fragments/main :: header"></div>
+            
+            <div class="holidays panel panel-info">
+                <div class="panel-heading">
+                    <h4 th:text="#{holidays.description}"></h4>
+                </div>
+                <div class="panel-body">
+                    <form id="holidays-form" class="form-inline" th:action="@{/holidays}" method="GET">
+                        <label for="startDate" th:text="#{holidays.start-date-label}"></label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <input class="form-control" type="date" id="startDate" name="startDate">
+                        </div>
+                        <label for="endDate" th:text="#{holidays.end-date-label}"></label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <input class="form-control" type="date" id="endDate" name="endDate">
+                        </div>
+                    </form>
+                    <input class="btn btn-primary holidays-calculate" type="submit" form="holidays-form" th:value="#{holidays.calculate}"></input>
+                    <span class="holidays-result" th:text="#{holidays.result}"></span>
+                </div>
+                    
+            </div>
+            
+        </div>
+
+    </body>
+
+             
+</html>

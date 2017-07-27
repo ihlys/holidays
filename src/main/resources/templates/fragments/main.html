@@ -1,0 +1,39 @@
+<th:block th:fragment="head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Holidays</title>
+    
+    <link rel="stylesheet" type="text/css" media="all" 
+          href="../static/lib/jquery-ui-1.12.1/jquery-ui.min.css"
+              th:href="@{/lib/jquery-ui-1.12.1/jquery-ui.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" 
+          href="../static/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+              th:href="@{/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/lib/font-awesome-4.7.0/css/font-awesome.min.css"
+              th:href="@{/lib/font-awesome-4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/main.css"
+              th:href="@{/css/main.css}"/>
+</th:block>
+
+<div class="header" th:fragment="header">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1 th:text="#{main.header}"></h2>
+    </div>
+    <div class="col-sm-3">
+        <div class="status">
+            <th:block sec:authorize="isAuthenticated()">
+                <span th:text="#{main.status.message} + ' ' + ${#authentication.getPrincipal().getUsername()}"></span>
+                <form method="POST" th:action="@{/logout}">
+                    <button class="btn btn-primary" th:text="#{main.sign-out}" type="submit"></button>
+                </form>
+            </th:block>
+            <th:block sec:authorize="isAnonymous()">
+                <span th:text="#{main.not-authenticated}"></span>
+            </th:block>
+        </div>
+    </div>
+</div>

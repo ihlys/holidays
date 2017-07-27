@@ -1,0 +1,19 @@
+.holidays {
+    width: 90%;
+    margin: 40px auto 10px;
+    height: 260px;
+    position: relative;
+}
+
+.holidays-calculate{
+    margin: 20px 0px;
+}
+
+.holidays-result {
+    display: block;
+    float: right;
+    font-size: 16px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
